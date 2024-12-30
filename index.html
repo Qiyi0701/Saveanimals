@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>流浪宠物救助</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <h1>流浪宠物救助</h1>
+            <p>帮助流浪宠物找到新的家园，为它们带来希望</p>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="#about">关于我们</a></li>
+            <li><a href="#pets">待领养宠物</a></li>
+            <li><a href="#donate">捐赠支持</a></li>
+            <li><a href="#contact">联系我们</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="about" class="section">
+            <h2>关于我们</h2>
+            <p>我们致力于拯救流浪宠物，为它们找到温暖的家。加入我们，一起改变它们的命运！</p>
+        </section>
+
+        <section id="pets" class="section">
+            <h2>待领养宠物</h2>
+            <div class="filter-container">
+                <input type="text" id="search-bar" placeholder="搜索宠物...">
+                <select id="filter-type">
+                    <option value="all">全部</option>
+                    <option value="cat">猫</option>
+                    <option value="dog">狗</option>
+                </select>
+                <select id="filter-age">
+                    <option value="all">全部年龄</option>
+                    <option value="young">幼年</option>
+                    <option value="adult">成年</option>
+                    <option value="senior">老年</option>
+                </select>
+                <select id="filter-gender">
+                    <option value="all">全部性别</option>
+                    <option value="male">雄性</option>
+                    <option value="female">雌性</option>
+                </select>
+            </div>
+            <div class="pets-grid">
+                <!-- 宠物卡片将通过 JavaScript 动态加载 -->
+            </div>
+        </section>
+
+        <section id="donate" class="section">
+            <h2>捐赠支持</h2>
+            <p>您的捐赠将帮助我们为流浪宠物提供食物、住所和医疗服务。每一份支持都至关重要！</p>
+            <button class="donate-btn">立即捐赠</button>
+        
+            <!-- 捐赠进度追踪 -->
+            <div class="donation-progress">
+                <h3>捐赠进度</h3>
+                <div class="progress-bar">
+                    <div class="progress"></div> <!-- 进度条，宽度根据实际进度动态调整 -->
+                </div>
+                <p class="progress-text">当前进度：0%</p>
+                <button id="update-donation-btn">更新捐赠金额</button> <!-- 新增按钮 -->
+            </div>
+        
+            <!-- 资金用途列表 -->
+            <div class="fund-usage">
+                <h3>资金用途</h3>
+                <ul>
+                    <!-- 资金用途将通过 JavaScript 动态加载 -->
+                </ul>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <h2>联系我们</h2>
+            <form class="contact-form">
+                <label for="name">姓名：</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">邮箱：</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">留言：</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                <button type="submit">发送留言</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- 宠物详情弹窗 -->
+    <div id="pet-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modal-image" src="" alt="宠物图片">
+            <h2 id="modal-name"></h2>
+            <p id="modal-description"></p>
+            <p><strong>类型：</strong><span id="modal-type"></span></p>
+            <p><strong>年龄：</strong><span id="modal-age"></span></p>
+            <p><strong>性别：</strong><span id="modal-gender"></span></p>
+            
+            <!-- 健康记录选项卡 -->
+            <div class="tabs">
+                <button class="tab-link active" data-tab="info">基本信息</button>
+                <button class="tab-link" data-tab="health">健康记录</button>
+            </div>
+            <div id="info" class="tab-content active">
+                <!-- 基本信息内容 -->
+            </div>
+            <div id="health" class="tab-content">
+                <h3>健康记录</h3>
+                <ul id="health-records">
+                    <!-- 健康记录将通过 JavaScript 动态加载 -->
+                </ul>
+                <!-- 管理员可以更新健康记录 -->
+                <div id="admin-health-form" class="hidden">
+                    <h3>更新健康记录</h3>
+                    <form id="health-form">
+                        <label for="health-date">日期：</label>
+                        <input type="date" id="health-date" required>
+                        <label for="health-description">描述：</label>
+                        <textarea id="health-description" rows="3" required></textarea>
+                        <button type="submit">提交</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 流浪宠物救助。版权所有。</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
